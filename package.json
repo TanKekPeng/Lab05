@@ -1,0 +1,16 @@
+{
+  "type": "module",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@microsoft/eslint-formatter-sarif": "^3.1.0",
+    "chai": "^5.2.1",
+    "eslint": "^9.31.0",
+    "mocha": "^11.7.1",
+    "selenium-webdriver": "^4.27.0"
+  },
+  "scripts": {
+    "test": "mocha tests/*.js"
+  }
+}
