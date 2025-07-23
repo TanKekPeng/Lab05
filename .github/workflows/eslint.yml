@@ -2,6 +2,11 @@ name: ESLint Code Analysis
 
 on: [push, pull_request]
 
+permissions:
+  contents: read              # you almost always need this
+  actions: read               # to call the workflow-runs endpoint
+  security-events: write      # to upload annotations to the Code Scanning API
+
 jobs:
   eslint:
     runs-on: ubuntu-latest
