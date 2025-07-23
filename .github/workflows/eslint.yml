@@ -7,7 +7,7 @@ permissions:
   actions: read
   contents: read
 
-  
+
 jobs:
   eslint:
     runs-on: ubuntu-latest
