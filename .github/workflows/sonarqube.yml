@@ -25,8 +25,5 @@ jobs:
 
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v4
-        with:
-          organization:   ${{ secrets.SONAR_ORGANIZATION }}   # e.g. “tankekpeng”
-          projectKey:     ${{ secrets.SONAR_PROJECT_KEY }}    # your Cloud project key
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
