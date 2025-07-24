@@ -8,7 +8,7 @@ on:
 
 jobs:
   sonarqube:
-    name: Analyze with SonarQube
+    name: Analyze with SonarCloud
     runs-on: ubuntu-latest
 
     steps:
@@ -21,11 +21,16 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: SonarQube Scan
-        uses: sonarsource/sonarqube-scan-action@master
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        with:
+          # your SonarCloud organization key (e.g. "my-org")
+          organization:   ${{ secrets.SONAR_ORGANIZATION }}
+          # your SonarCloud project key (as defined in SonarCloud)
+          projectKey:     ${{ secrets.SONAR_PROJECT_KEY }}
+          # (optional) friendly display name
+          # projectName: "My Awesome App"
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-          
+          SONAR_TOKEN:   ${{ secrets.SONAR_TOKEN }}
